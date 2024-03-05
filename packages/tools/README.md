@@ -1,7 +1,7 @@
-# `tools`
-
+# `@cmsfe/tools`
 
 ```
-npm install @cmsfefe/tools
+pnpm install @cmsfefe/tools
 
+iport { } from '@cmsfe/tools'
 ```

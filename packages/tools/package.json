@@ -1,8 +1,8 @@
 {
   "name": "@cmsfe/tools",
   "description": "cms",
-  "version": "0.0.0",
-  "private": false,
+  "version": "1.0.0",
+  "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,6 +16,8 @@
   "devDependencies": {
     "tsup": "^8.0.2",
     "typescript": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
   }
-   
 }
