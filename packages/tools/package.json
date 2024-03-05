@@ -1,7 +1,7 @@
 {
   "name": "@cmsfe/tools",
   "description": "cms",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -10,8 +10,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --external react",
-    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react"
+    "build": "tsup src/index.ts --format cjs,esm --dts --external react"
   },
   "devDependencies": {
     "tsup": "^8.0.2",
