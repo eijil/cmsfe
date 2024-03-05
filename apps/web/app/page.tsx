@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Card } from "@repo/ui/card";
-import { Code } from "@repo/ui/code";
+import { Card } from "@cmsfe/ui/card";
+import { Code } from "@cmsfe/ui/code";
 import styles from "./page.module.css";
-import { Button } from "@repo/ui/button";
+import { Button } from "@cmsfe/ui/button";
+import { add } from '@cmsfe/tools'
 
 function Gradient({
   conic,
@@ -13,6 +14,9 @@ function Gradient({
   conic?: boolean;
   className?: string;
 }): JSX.Element {
+
+
+  
   return (
     <span
       className={[
@@ -52,6 +56,10 @@ const LINKS = [
 ];
 
 export default function Page(): JSX.Element {
+
+
+  console.log('add',  add(1,2))
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
