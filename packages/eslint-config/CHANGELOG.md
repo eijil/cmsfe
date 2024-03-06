@@ -1,4 +1,4 @@
-# @cmsfe/tools
+# @cmsfe/eslint-config
 
 ## 0.0.2
 
@@ -17,9 +17,3 @@
 ### Patch Changes
 
 - test pubish
-
-## 1.0.0
-
-### Major Changes
-
-- update readme

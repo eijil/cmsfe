@@ -1,25 +1,25 @@
-# @cmsfe/tools
+# @cmsfe/typescript-config
 
-## 0.0.2
-
-### Patch Changes
-
-- test changeset
-
-## 0.0.2-alpha.0
+## 0.1.2
 
 ### Patch Changes
 
 - test changeset
 
-## 0.0.1
+## 0.1.2-alpha.0
+
+### Patch Changes
+
+- test changeset
+
+## 0.1.1
 
 ### Patch Changes
 
 - test pubish
 
-## 1.0.0
+## 0.1.0
 
-### Major Changes
+### Minor Changes
 
-- update readme
+- test changeset
