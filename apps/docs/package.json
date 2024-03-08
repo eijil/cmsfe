@@ -12,15 +12,15 @@
     "191754186@qq.com"
   ],
   "license": "MIT",
-
   "lint-staged": {
     "*.{md,json}": [
       "prettier --write --no-error-on-unmatched-pattern"
     ]
   },
   "dependencies": {
+    "@cmsfe/tools": "workspace:*",
     "@cmsfe/ui": "workspace:*",
-    "@cmsfe/tools": "workspace:*"
+    "dumi-theme-lobehub": "^1.7.6"
   },
   "devDependencies": {
     "dumi": "^2.2.13",
