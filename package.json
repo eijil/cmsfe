@@ -8,16 +8,20 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "vitest run",
     "publish-packages": "turbo run build lint && changeset version && changeset publish",
+    "cli:dev": "pnpm --filter @cmsfe/cli dev",
     "change": "changeset",
     "change-a": "changeset pre enter alpha",
     "change-b": "changeset pre enter beta",
     "change-rc": "changeset pre enter rc",
-    "release": "turbo build --filter=docs^... && changeset publish"
+    "release": "turbo build --filter=docs^... && changeset publish",
+    "pub:release": "cd packages/cli && pnpm pub:release"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@cmsfe/eslint-config": "workspace:*",
     "@cmsfe/typescript-config": "workspace:*",
+    "@cmsfe/cli": "workspace:*",
+    
     "prettier": "^3.2.5",
     "tsup": "^8.0.2",
     "turbo": "latest",
