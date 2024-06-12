@@ -58,7 +58,7 @@ export async function run() {
   const {prompt} = enquirer
 
   //提示输入项目名称，必填
-  const projectPrompt = await prompt({
+  const projectPrompt: any = await prompt({
     type: "input",
     name: "name",
     message: "请输入项目名称",
@@ -66,7 +66,7 @@ export async function run() {
   });
 
   // 选择部署环境
-  const envPrompt = await prompt({
+  const envPrompt: any = await prompt({
     type: "select",
     name: "env",
     message: "请选择部署环境",
@@ -77,13 +77,13 @@ export async function run() {
 
   const {env} = envPrompt
 
-  const confirmResult = await prompt({
+  const confirmResult: any = await prompt({
     type: 'confirm',
     name: 'confirm',
     message: `确认发布这个项目 ${chalk.blue(envPrompt.env)}:${chalk.green(projectPrompt.name)} ？`
   })
 
-  if (!confirmResult.confirm) {
+  if (!confirmResult?.confirm) {
     logger.warn("部署已取消");
     return
   }
