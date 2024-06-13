@@ -8,4 +8,5 @@ export default defineConfig({
   minify: true,
   entry: ["src/index.ts"],
   outDir: "dist",
+
 });
