@@ -6,17 +6,27 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./env": "./src/env.ts"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --external react"
+    "build": "tsup src/index.ts --format cjs,esm --dts --external react",
+    "lint": "eslint"
   },
   "devDependencies": {
+    "@types/ua-parser-js": "^0.7.39",
+    "@vitest/browser": "^1.6.0",
+    "vite": "^5.2.13",
+    "webdriverio": "^8.38.2",
     "tsup": "^8.0.2",
     "typescript": "latest"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "ua-parser-js": "^1.0.38"
   }
 }

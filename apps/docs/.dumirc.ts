@@ -1,7 +1,7 @@
 import { defineConfig } from 'dumi';
 import { SiteThemeConfig } from 'dumi-theme-lobehub';
 
-const homepage = ''
+const homepage = '';
 const themeConfig: SiteThemeConfig = {
   actions: [
     {
@@ -17,27 +17,30 @@ const themeConfig: SiteThemeConfig = {
     },
   ],
   apiHeader: false,
-  description: 'Lobe UI is an open-source UI component library for building chatbot web apps',
-  footer: 'Made with 🤯 by LobeHub',
-  giscus: {
-    category: 'Q&A',
-    categoryId: 'DIC_kwDOJloKoM4CXsCu',
-    repo: 'lobehub/lobe-ui',
-    repoId: 'R_kgDOJloKoA',
-  },
-  logoType:'flat',
-  
-  name: '',
+  description: '',
+  footer: 'Made with 🤯 by CMS',
+  // giscus: {
+  //   category: 'Q&A',
+  //   categoryId: 'DIC_kwDOJloKoM4CXsCu',
+  //   repo: 'lobehub/lobe-ui',
+  //   repoId: 'R_kgDOJloKoA',
+  // },
+  logoType: 'flat',
+
+  name: 'cmsfe',
   socialLinks: {
     discord: 'https://discord.gg/AYFPHvv2jT',
     github: homepage,
   },
   title: 'cmsfe',
-  features:[]
+  features: [],
+  footerConfig: {
+    columns: [],
+  },
 };
 export default defineConfig({
   mfsu: false,
-  ssr : false,
+  ssr: false,
   // apiParser: {},
   // resolve: {
   //   entryFile: './src/index.ts'
