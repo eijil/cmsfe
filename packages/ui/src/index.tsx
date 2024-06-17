@@ -1,4 +1,3 @@
 export * from './button'
-export * from './card'
-export * from './code'
 export * from './Toast'
+export * from './Loading'

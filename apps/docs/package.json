@@ -23,7 +23,7 @@
     "dumi-theme-lobehub": "^1.7.6"
   },
   "devDependencies": {
-    "dumi": "^2.2.13",
+    "dumi": "^2.3.8",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   }

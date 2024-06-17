@@ -5,10 +5,82 @@ group: "通用组件"
 # Loading
 
 ``` ts
-import {loading} from '@cmsfe/ui'
+import { Loading } from '@cmsfe/ui'
+
+
+
 ```
 
-| name  | type   | description | required | default | example |
-|-------|--------|-------------|----------|---------|---------|
-| title | string | title       |          |         |         |
-| desc  | string | desc        |          |         |         |
+``` jsx
+/**
+ * title: 引入css
+ * debug: true
+ */
+ import React from 'react'
+import '@cmsfe/ui/dist/styles.css'
+
+export default () => {
+  return (
+    <></>
+  );
+};
+
+```
+
+``` jsx
+/**
+ * title: Basic
+ * defaultShowCode: true
+ */
+import React from 'react'
+import { Loading } from '@cmsfe/ui'
+
+
+export default () => {
+  return (
+    <Loading />
+  );
+};
+```
+
+``` jsx
+/**
+ * title: With Size
+ * defaultShowCode: true
+ * description: 尺寸类型 'xs' | 'sm' | 'md' | 'lg'
+ */
+import React from 'react'
+import { Loading } from '@cmsfe/ui'
+
+
+export default () => {
+  return (
+    <div className='flex space-x-2'> 
+      <Loading size='xs' />
+      <Loading size='sm' />
+      <Loading size='md' />
+      <Loading size='lg' />
+    </div>
+  );
+};
+```
+
+``` jsx
+/**
+ * title: color
+ * defaultShowCode: true
+ * 
+ */
+import React from 'react'
+import { Loading } from '@cmsfe/ui'
+
+
+export default () => {
+  return (
+    <div className='flex space-x-2'> 
+      <Loading color='#0ea5e9'/>
+      <Loading color='#15803d'/>
+    </div>
+  );
+};
+```
