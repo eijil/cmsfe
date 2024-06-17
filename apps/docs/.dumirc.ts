@@ -1,12 +1,12 @@
 import { defineConfig } from 'dumi';
 import { SiteThemeConfig } from 'dumi-theme-lobehub';
 
-const homepage = '';
+const gitRepo = 'https://gitlab.stardustgod.com/lijie/cmsfe.git';
 const themeConfig: SiteThemeConfig = {
   actions: [
     {
       icon: 'Github',
-      link: homepage,
+      link: gitRepo,
       openExternal: true,
       text: 'Github',
     },
@@ -16,8 +16,10 @@ const themeConfig: SiteThemeConfig = {
       type: 'primary',
     },
   ],
+  hideHomeNav: true,
   apiHeader: false,
   description: '',
+
   footer: 'Made with 🤯 by CMS',
   // giscus: {
   //   category: 'Q&A',
@@ -29,11 +31,11 @@ const themeConfig: SiteThemeConfig = {
 
   name: 'cmsfe',
   socialLinks: {
-    discord: 'https://discord.gg/AYFPHvv2jT',
-    github: homepage,
+    github: gitRepo,
   },
   title: 'cmsfe',
   features: [],
+
   footerConfig: {
     columns: [],
   },

@@ -1,7 +1,7 @@
 ---
-
+group: "通用组件"
+order: 1
 ---
-
 
 # Toast
 
@@ -17,7 +17,6 @@ toast('Hello World')
 ```
 
 使用`toast`之前必须确保App内已经引入`<Toaster/>`组件,通常可以写在`layout`层
-
 
 ## API
 
@@ -52,10 +51,6 @@ toast('Hello World', {
 toast.success
 
 toast.error
-
-
-
-
 
 ``` jsx
 import React from 'react'
@@ -97,7 +92,6 @@ export default () => {
   );
 };
 ```
-
 
 ``` jsx
 

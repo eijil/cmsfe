@@ -2,19 +2,14 @@ import React from 'react'
 import './loading.css'
 
 interface IProps {
-    color?: string,
-    size?: number
+  color?: string
+  size?: number
 }
 
-export default function (props:IPoros){
+export default function (props: IProps) {
+  const styles = {
+    color: props.color,
+  }
 
-    const styles = {
-        color : props.color
-    }
-
-    return (
-    <div className='cms-ui-loading'>
-
-    </div>)
-
+  return <div className="cms-ui-loading"></div>
 }

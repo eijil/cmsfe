@@ -1,8 +1,7 @@
 ---
-
-title: button
-description: Button 组件
-
+group: "通用组件"
+description: "Button 组件"
+order: 2
 ---
 
 ``` jsx

@@ -1,4 +1,7 @@
 ---
-title: "组件"
+title: "intro"
+nav:
+  title: "组件"
+  order: 0
 ---
 
