@@ -1,10 +1,12 @@
 ---
-title: "Guide"
+title: "Intro"
 nav:
   title: "组件"
   order: 0
-apiHeader: false
+
+apiheader: false
 ---
+
 
 ## install
 

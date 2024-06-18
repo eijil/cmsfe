@@ -20,8 +20,11 @@
   "dependencies": {
     "@cmsfe/tools": "workspace:*",
     "@cmsfe/ui": "workspace:*",
-    "dumi-theme-lobehub": "^1.7.6",
+    "@lobehub/ui": "^1.143.3",
+    "@uiw/react-json-view": "2.0.0-alpha.24",
+    "dumi-theme-lobehub": "latest",
     "react": "^18.2.0"
+   
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

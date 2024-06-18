@@ -2,7 +2,7 @@ import { defineConfig } from 'dumi';
 import { SiteThemeConfig } from 'dumi-theme-lobehub';
 
 const gitRepo = 'https://gitlab.stardustgod.com/lijie/cmsfe.git';
-import {  name } from './package.json';
+
 const themeConfig: SiteThemeConfig = {
   actions: [
     {
@@ -18,10 +18,11 @@ const themeConfig: SiteThemeConfig = {
     },
   ],
   hideHomeNav: true,
+  
   apiHeader: {
     // docUrl: `{github}/tree/master/src/{atomId}/index.md`,
-    match: ['/docs', '/ui'],
-    pkg: '@cmsfe/ui',
+    match: ['/ui', '/tools'],
+    
     // sourceUrl: `{gitRepo}/tree/master/src/{atomId}/index.tsx`,
   },
   description: '',

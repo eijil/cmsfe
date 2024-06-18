@@ -1,32 +1,18 @@
 ---
 ---
 
-## getEnv
 
-``` js
-import { getEnv } from '@cmsfe/tools/env'
-```
 
-``` jsx
-import React from 'react'
-import  { getEnv } from '@cmsfe/tools/env'
+## 默认
+<code src="../../src/demo/tools/env/default.tsx" defaultShowCode ></code>
 
-export default () => {
-  return (
-    <div>
-      {JSON.stringify(getEnv())}
-    </div>
-  );
-};
-```
+
+## 测试
+<code src="../../src/demo/tools/env/testEnv.tsx" defaultShowCode ></code>
 
 ### API
 
-``` javascript
-getEnv(ua ? : string) => object
-```
 
-### 参数
 
 | 参数   | 类型       | 必选 | 描述                                 |
 |------|----------|----|------------------------------------|

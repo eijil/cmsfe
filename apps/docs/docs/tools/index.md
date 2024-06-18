@@ -3,7 +3,7 @@ title: Intro
 nav:
   title: 工具
   order: 2
-
+apiHeader: false
 ---
 
 ## install

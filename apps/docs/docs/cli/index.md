@@ -1,15 +1,14 @@
 ---
-title: CLI
+title: 'CLI'
+description: 命令行工具，用于创建，和部署活动页项目
+
 nav:
   title: 命令行CLI
   order: 3
 
-
 ---
 
-# @cmsfe/cli
 
-命令行工具，用于创建，和部署活动页项目
 
 ## install
 

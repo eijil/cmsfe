@@ -1,5 +1,7 @@
 ---
 group: "通用组件"
+apiHeader: 
+  pkg: "@cmsfe/ui"
 ---
 
 
