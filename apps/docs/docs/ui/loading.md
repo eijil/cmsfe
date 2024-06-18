@@ -2,30 +2,8 @@
 group: "通用组件"
 ---
 
-# Loading
 
-``` ts
-import { Loading } from '@cmsfe/ui'
-
-
-
-```
-
-``` jsx
-/**
- * title: 引入css
- * debug: true
- */
- import React from 'react'
-import '@cmsfe/ui/dist/styles.css'
-
-export default () => {
-  return (
-    <></>
-  );
-};
-
-```
+## 使用
 
 ``` jsx
 /**
@@ -42,6 +20,9 @@ export default () => {
   );
 };
 ```
+
+
+
 
 ``` jsx
 /**
@@ -65,7 +46,9 @@ export default () => {
 };
 ```
 
-``` jsx
+
+
+``` tsx
 /**
  * title: color
  * defaultShowCode: true
@@ -73,7 +56,6 @@ export default () => {
  */
 import React from 'react'
 import { Loading } from '@cmsfe/ui'
-
 
 export default () => {
   return (
@@ -84,3 +66,40 @@ export default () => {
   );
 };
 ```
+
+
+
+``` jsx
+/**
+ * title: 遮罩
+ * defaultShowCode: true
+ * iframe: true
+ */
+
+import React from 'react'
+import { Loading } from '@cmsfe/ui'
+
+export default () => {
+  return (
+    <div className=''> 
+      body
+      <Loading color='#0ea5e9' size='lg' fixed={{
+        zIndex: 1000,
+        opacity: 0.5
+      }}/>
+     
+    </div>
+  );
+};
+```
+
+## 设置
+
+
+
+## APIs
+
+<API id="Loading"></API>
+
+
+

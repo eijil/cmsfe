@@ -2,6 +2,7 @@ import { defineConfig } from 'dumi';
 import { SiteThemeConfig } from 'dumi-theme-lobehub';
 
 const gitRepo = 'https://gitlab.stardustgod.com/lijie/cmsfe.git';
+import {  name } from './package.json';
 const themeConfig: SiteThemeConfig = {
   actions: [
     {
@@ -17,7 +18,12 @@ const themeConfig: SiteThemeConfig = {
     },
   ],
   hideHomeNav: true,
-  apiHeader: false,
+  apiHeader: {
+    // docUrl: `{github}/tree/master/src/{atomId}/index.md`,
+    match: ['/docs', '/ui'],
+    pkg: '@cmsfe/ui',
+    // sourceUrl: `{gitRepo}/tree/master/src/{atomId}/index.tsx`,
+  },
   description: '',
 
   footer: 'Made with 🤯 by CMS',
@@ -43,9 +49,10 @@ const themeConfig: SiteThemeConfig = {
 export default defineConfig({
   mfsu: false,
   ssr: false,
-  // apiParser: {},
-  // resolve: {
-  //   entryFile: './src/index.ts'
-  // },
+  apiParser: {},
+  resolve: {
+    entryFile: './src/index.tsx'
+  },
   themeConfig,
+  extraPostCSSPlugins: [require('tailwindcss'), require('autoprefixer')],
 });

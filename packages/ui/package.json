@@ -4,6 +4,7 @@
   "exports": {
     ".": "./src/index.tsx",
     "./*": "./*"
+   
   },
   "files": [
     "src/**",

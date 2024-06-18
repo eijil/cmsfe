@@ -20,11 +20,15 @@
   "dependencies": {
     "@cmsfe/tools": "workspace:*",
     "@cmsfe/ui": "workspace:*",
-    "dumi-theme-lobehub": "^1.7.6"
+    "dumi-theme-lobehub": "^1.7.6",
+    "react": "^18.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
     "dumi": "^2.3.8",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "postcss": "^8.4.38",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.4.4"
   }
 }
