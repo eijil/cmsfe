@@ -1,4 +1,8 @@
 ---
+title: 'getEnv'
+description: '获取UA信息'
+apiHeader:
+  pkg: '@cmsfe/tools/env'
 ---
 
 
@@ -10,9 +14,9 @@
 ## 测试
 <code src="../../src/demo/tools/env/testEnv.tsx" defaultShowCode ></code>
 
-### API
+## API
 
-
+### 参数
 
 | 参数   | 类型       | 必选 | 描述                                 |
 |------|----------|----|------------------------------------|
@@ -27,4 +31,8 @@
 | `isFB`      | `boolean`     | 布尔值，表示是否为 Facebook WebView。 |
 | `isAndroid` | `boolean`     | 布尔值，表示是否为 Android 设备。       |
 | `isIOS`     | `boolean`     | 布尔值，表示是否为 iOS 设备。           |
+| `isTablet`     | `boolean`     | 布尔值，表示是否为 平板 设备。           |
+| `isMac`     | `boolean`     | 布尔值，表示是否为 Mac 系统。           |
+
+
 

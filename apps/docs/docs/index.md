@@ -1,7 +1,7 @@
 ---
 title: cms docs
 hero:
-  title: cmsfe
+  title: cms<b>fe</b>
   description: crazymaplestudio 前端组件/工具库
 ---
 

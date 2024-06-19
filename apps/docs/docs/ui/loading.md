@@ -1,5 +1,7 @@
 ---
 group: "通用组件"
+
+description: '加载提示组件'
 apiHeader: 
   pkg: "@cmsfe/ui"
 ---
@@ -7,9 +9,12 @@ apiHeader:
 
 ## 使用
 
+
+### Basic
+
 ``` jsx
 /**
- * title: Basic
+ * 
  * defaultShowCode: true
  */
 import React from 'react'
@@ -24,14 +29,12 @@ export default () => {
 ```
 
 
+### Size
 
+可选尺寸类型: `xs`  `sm`  `md` `lg`
 
 ``` jsx
-/**
- * title: With Size
- * defaultShowCode: true
- * description: 尺寸类型 'xs' | 'sm' | 'md' | 'lg'
- */
+
 import React from 'react'
 import { Loading } from '@cmsfe/ui'
 
@@ -48,14 +51,10 @@ export default () => {
 };
 ```
 
-
+### Color
 
 ``` tsx
-/**
- * title: color
- * defaultShowCode: true
- * 
- */
+
 import React from 'react'
 import { Loading } from '@cmsfe/ui'
 
@@ -69,13 +68,14 @@ export default () => {
 };
 ```
 
-
+### 遮罩
 
 ``` jsx
 /**
- * title: 遮罩
- * defaultShowCode: true
- * iframe: true
+ *
+ * 
+ * transform: true
+ *
  */
 
 import React from 'react'
@@ -83,7 +83,7 @@ import { Loading } from '@cmsfe/ui'
 
 export default () => {
   return (
-    <div className=''> 
+    <div className='h-40'> 
       body
       <Loading color='#0ea5e9' size='lg' fixed={{
         zIndex: 1000,
@@ -101,7 +101,14 @@ export default () => {
 
 ## APIs
 
-<API id="Loading"></API>
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| color | 颜色 | string | - |
+| size | 尺寸 | string | 'md' |
+| fixed | 遮罩 | object | - |
+| className | class | string | - |
+
+
 
 
 

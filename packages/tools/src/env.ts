@@ -21,6 +21,9 @@ export const getEnv = (userAgent?: string) => {
     isFB: isFB(ua),
     isAndroid: os.name === 'Android',
     isIOS: os.name === 'iOS',
+    isTablet: device.type === 'tablet',
+    isMac: os.name === 'Mac OS'
+    
   }
 }
 
