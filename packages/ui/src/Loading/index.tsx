@@ -1,8 +1,7 @@
 import React from 'react'
-import { cn } from '../utils' // import { twMerge } from 'tailwind-merge'
-import './loading.css' // import { twMerge } from 'tailwind-merge'
+import { cn } from '../utils' 
 
-// import { twMerge } from 'tailwind-merge'
+
 
 type Fixed = {
   zIndex?: number

@@ -4,7 +4,6 @@
   "exports": {
     ".": "./src/index.tsx",
     "./*": "./*"
-   
   },
   "files": [
     "src/**",
@@ -27,6 +26,7 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.2",
     "eslint": "^8.57.0",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",

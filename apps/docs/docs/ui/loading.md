@@ -63,6 +63,7 @@ export default () => {
     <div className='flex space-x-2'> 
       <Loading color='#0ea5e9'/>
       <Loading color='#15803d'/>
+
     </div>
   );
 };
