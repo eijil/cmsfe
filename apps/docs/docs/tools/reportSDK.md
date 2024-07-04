@@ -35,7 +35,7 @@ export {reportSDK};
 
 通用上报事件
 
-``` typescript
+```ts
 interface IParam {
   // 事件名
   event_name : string,
@@ -51,15 +51,14 @@ function eventReport(param: IParam): void;
 
 应用安装激活上报
 
-``` typescript
+```js
   function installReport(): void;
-
 ```
 
 ### pageEnter
 加载页面上报
 
-``` typescript
+```js
 interface IParam {
   // 路由地址
   path: string,
@@ -70,7 +69,7 @@ interface IParam {
 
 }
 function pageEnter(parm:IParam): void;
-  
+
 
 ```
 

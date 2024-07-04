@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 1.0.0
+
+### Major Changes
+
+- 修复report上报功能
+
 ## 0.0.2
 
 ### Patch Changes

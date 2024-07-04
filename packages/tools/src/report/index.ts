@@ -1,9 +1,11 @@
 import { nanoid } from 'nanoid'
+import zlib from 'zlib'
 import { getEnv } from '../env'
 
 const env = getEnv()
 
 interface IParams {
+  reportAPI: string
   version: string
   appId: string
   channelId: string
@@ -21,10 +23,12 @@ class ReportSDK {
   private APP_ID: string
   private CHANNEL_ID: string
   private PACKAGE_NAME: string
+  private REPORT_API: string
 
   private static instance: ReportSDK
 
   private constructor(params: IParams) {
+    this.REPORT_API = params.reportAPI
     this.VERSION = params.version
     this.APP_ID = params.appId
     this.CHANNEL_ID = params.channelId
@@ -88,17 +92,16 @@ class ReportSDK {
    * 应用安装激活
    */
   public installReport() {
-    
     const { uaParser } = env
 
     let category = ''
-    if(env.isMobile){
+    if (env.isMobile) {
       category = 'phone'
-    }else if(env.isTablet){
+    } else if (env.isTablet) {
       category = 'tablet'
-    }else if(env.isMac){
+    } else if (env.isMac) {
       category = 'mac'
-    }else {
+    } else {
       category = 'pc'
     }
 
@@ -112,7 +115,7 @@ class ReportSDK {
           _device_screen_w: window.screen.width,
           _device_ram: 0, // 拿不到就是空
           _device_lang: 'en',
-          _device_category: category,  //设备类型 phone/tablet/pc/mac/
+          _device_category: category, //设备类型 phone/tablet/pc/mac/
           browser_brand: uaParser.browser.name,
           browser_version: uaParser.browser.version,
           _ua: navigator.userAgent,
@@ -124,7 +127,7 @@ class ReportSDK {
   }
 
   private getBaseInfo() {
-    const {uaParser} = env
+    const { uaParser } = env
     const _os_type = uaParser.os.name ? uaParser.os.name.toLowerCase() : ''
 
     const baseInfo = {
@@ -187,7 +190,18 @@ class ReportSDK {
   /**
    * 发送数据到服务端
    */
-  private send(data: any) {}
+  private async send(data: any) {
+    const realParamsStr = JSON.stringify([data])
+    let zlibStr = zlib.deflateSync(realParamsStr)
+    const result = await fetch(this.REPORT_API, {
+      method: 'POST',
+      body: zlibStr.toString('base64'),
+    }).catch((err) => {
+      console.log('上报失败', err)
+    })
+
+    return result
+  }
 }
 
 export default ReportSDK
