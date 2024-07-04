@@ -1,22 +1,10 @@
 # @cmsfe/tools
 
-## 1.0.0
-
-### Major Changes
-
-- 修复report上报功能
-
-## 0.0.2
+## 1.0.3
 
 ### Patch Changes
 
-- test changeset
-
-## 0.0.2-alpha.0
-
-### Patch Changes
-
-- test changeset
+- 修复reportSDK 发送数据问题
 
 ## 0.0.1
 

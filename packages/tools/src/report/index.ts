@@ -1,22 +1,15 @@
 import { nanoid } from 'nanoid'
-import zlib from 'zlib'
+
+import pako from 'pako'
 import { getEnv } from '../env'
+import { Buffer } from 'buffer'
+import { IParams, IReportParam, IEventReportParam } from './interface'
+
 
 const env = getEnv()
 
-interface IParams {
-  reportAPI: string
-  version: string
-  appId: string
-  channelId: string
-  packageName?: string
-}
-interface IReportParam {
-  _event_name: string
-  _sub_event_name?: string
-  properties: { [key: string]: any }
-  [key: string]: any
-}
+/** 记录上报过的id */
+let reported: any = {}
 
 class ReportSDK {
   private VERSION: string
@@ -46,23 +39,26 @@ class ReportSDK {
    * 通用上报
    * @param param
    */
-  public eventReport({
-    event_name,
-    sub_event_name,
-    properties,
-    ctime,
-  }: {
-    event_name: string
-    sub_event_name: string
-    properties: any
-    ctime?: number
-  }): void {
+  public eventReport(
+    { event_name, sub_event_name, properties, ctime }: IEventReportParam,
+    key?: string
+  ): void {
+    if (key && reported[key]) {
+      return
+    }
     const data = {
       _event_name: event_name,
       _sub_event_name: sub_event_name,
       properties,
     }
-    this.reportHandle(data, ctime)
+    try {
+      this.reportHandle(data, ctime)
+    } catch (e) {
+      console.log('上报失败', e)
+    }
+    if (key) {
+      reported[key] = true
+    }
   }
 
   /**
@@ -183,7 +179,6 @@ class ReportSDK {
       ...reportInfo,
       ...params,
     }
-    console.log('上报信息', params)
     this.send(data)
   }
 
@@ -191,11 +186,13 @@ class ReportSDK {
    * 发送数据到服务端
    */
   private async send(data: any) {
-    const realParamsStr = JSON.stringify([data])
-    let zlibStr = zlib.deflateSync(realParamsStr)
+    console.log('上报信息', data)
+
+    const d = pako.deflate(JSON.stringify([data]))
+    const buffer = Buffer.from(d)
     const result = await fetch(this.REPORT_API, {
       method: 'POST',
-      body: zlibStr.toString('base64'),
+      body: buffer.toString('base64'),
     }).catch((err) => {
       console.log('上报失败', err)
     })

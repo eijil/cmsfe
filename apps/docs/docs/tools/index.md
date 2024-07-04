@@ -8,13 +8,10 @@ apiHeader: false
 
 ## install
 
-```base
- npm instal -g @cmsfe/tools
+```bash
+ #npm
+ npm instal @cmsfe/tools
+ #pnpm 
+ pnpm add @cmsfe/tools
 ```
 
-## usage
-
-```js
-import {some_method} from '@cmsfe/tools'
-
-```
