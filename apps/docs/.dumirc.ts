@@ -52,8 +52,15 @@ export default defineConfig({
   ssr: false,
   apiParser: {},
   resolve: {
-    entryFile: './src/index.tsx'
+    entryFile: './src/index.tsx',
   },
   themeConfig,
   extraPostCSSPlugins: [require('tailwindcss'), require('autoprefixer')],
+  styles: [
+    `html, body { background: transparent;  }
+
+  @media (prefers-color-scheme: dark) {
+    html, body { background: #000; }
+  }`,
+  ],
 });

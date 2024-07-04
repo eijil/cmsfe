@@ -59,7 +59,7 @@ export const Loading = (props: LoadingProps) => {
       <div
         className={cn(
           clsSize,
-          'loading loading-spinner dark:text-blue-200',
+          'loading loading-spinner dark:text-blue-200 ',
           className
         )}
         style={{

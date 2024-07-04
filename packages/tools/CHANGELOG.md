@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 1.0.4
+
+### Patch Changes
+
+- 更新doc
+
 ## 1.0.3
 
 ### Patch Changes
@@ -11,9 +17,3 @@
 ### Patch Changes
 
 - test pubish
-
-## 1.0.0
-
-### Major Changes
-
-- update readme

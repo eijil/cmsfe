@@ -62,10 +62,6 @@ function eventReport(param: IParamm , key?: string): void
 
 
 
-### DEMO
-
-<code src="../../src/demo/tools/report_sdk/default.tsx" defaultShowCode ></code>
-
 
 
 ### installReport
@@ -96,4 +92,8 @@ function pageEnter(parm:IParam): void
 
 ### errorLog
 错误上报
+
+### DEMO
+
+<code src="../../src/demo/tools/report_sdk/default.tsx" defaultShowCode ></code>
 
