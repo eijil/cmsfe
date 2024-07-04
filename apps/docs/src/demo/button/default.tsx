@@ -4,7 +4,7 @@ import { Button } from '@cmsfe/ui';
 export default () => (
   <div className="flex space-x-2">
     <Button>Default</Button>
-    <Button type="primary" className="primary">
+    <Button type="primary">
       Primary
     </Button>
     <Button type="secondary">Secondary</Button>

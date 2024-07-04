@@ -2,6 +2,7 @@
   "name": "docs",
   "version": "0.0.1",
   "description": "A static site based on dumi",
+  "type": "module",
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",

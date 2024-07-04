@@ -37,10 +37,6 @@ export const Button = ({
   const btnType = type? typeMap[type] : ''
   const btnSize = size? sizeMap[size] : ''
 
-
-
-
-
   return (
     <button
       className={cn('btn', btnType, btnSize, className)}

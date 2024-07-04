@@ -49,7 +49,7 @@ export const Loading = (props: LoadingProps) => {
       {fixed && (
         <div
           className={cn(
-            'absolute top-0 left-0 w-full h-full  bg-gray-600 transition-all duration-300 ease-in-out'
+            'absolute top-0 left-0 w-full h-full bg-gray-600 transition-all duration-300 ease-in-out'
           )}
           style={{
             opacity: fixed?.opacity || 0.5,
