@@ -5,11 +5,15 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "NodeNext",
-
+    "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
-      "@@/*": [".dumi/tmp/*"]
+      "@@/*": [
+        ".dumi/tmp/*"
+      ]
     }
   },
-  "include": [".dumirc.ts"]
+  "include": [
+    ".dumirc.ts"
+  ]
 }

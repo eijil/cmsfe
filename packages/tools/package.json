@@ -9,7 +9,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./env": "./src/env.ts"
+    "./env": "./src/env.ts",
+    "./service": "./src/service/index.ts"
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --external react",
@@ -27,6 +28,10 @@
     "access": "public"
   },
   "dependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "crypto-js": "^4.2.0",
+    "fflate": "^0.8.2",
+    "js-base64": "^3.7.7",
     "nanoid": "^5.0.7",
     "ua-parser-js": "^1.0.38"
   }

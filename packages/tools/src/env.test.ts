@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { getEnv } from './env'
+import { webview } from './webview'
 
 test('test env is facebook', () => {
   const ua =
@@ -16,4 +17,11 @@ test('test env is in IOS', () => {
   expect(isMobile).toBe(true)
   expect(isAndroid).toBe(false)
   expect(isIOS).toBe(true)
+})
+
+
+
+test('test webview', () => {
+  typeof webview
+  expect(typeof webview === 'object').toBe(true)
 })
