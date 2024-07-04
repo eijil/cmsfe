@@ -10,7 +10,6 @@
     "dist/**",
     "*.css"
   ],
-  "type": "module",
   "scripts": {
     "dev": "tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --watch",
     "build:css": "tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css",

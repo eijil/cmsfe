@@ -1,9 +1,8 @@
 {
   "extends": "@cmsfe/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "moduleResolution":"node"
+    "outDir": "dist"
   },
-  "include": ["./src/**/*"],
+  "include": ["."],
   "exclude": ["node_modules", "dist"]
 }
