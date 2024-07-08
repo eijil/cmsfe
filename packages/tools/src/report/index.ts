@@ -1,3 +1,5 @@
+
+'use client'
 import { nanoid } from 'nanoid'
 
 import pako from 'pako'

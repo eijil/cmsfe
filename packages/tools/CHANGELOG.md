@@ -1,5 +1,17 @@
 # @cmsfe/tools
 
+## 1.0.6
+
+### Patch Changes
+
+- 修复ssr下报错
+
+## 1.0.5
+
+### Patch Changes
+
+- webview sdk
+
 ## 1.0.4
 
 ### Patch Changes

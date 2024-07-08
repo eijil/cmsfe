@@ -1,4 +1,4 @@
 
 
 export { default as ReportSDK } from './report'
-export { webview } from './webview'
+export { default as webview } from './webview'

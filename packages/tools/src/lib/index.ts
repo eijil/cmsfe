@@ -5,3 +5,6 @@ export function toLowerCaseFirstLetter(str:string) {
 }
 
 
+export const Window = ()=>{
+  return window
+}

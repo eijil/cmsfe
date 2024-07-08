@@ -56,12 +56,7 @@ function eventReport(param: IParamm , key?: string): void
 | param.event_name | string | 事件名型。    |是 |
 | param.sub_event_name | string | 子事件为。    |是 |
 | param.properties | object  | 其他属性象。       |否 |
-| key           | string  | (可选) 传入一个唯一的值，用于控制是否只上报一次，主要用于曝光埋点使用类。 |是 |
-
-
-
-
-
+| key           | string  | (可选) 传入一个唯一的值，用于控制是否只上报一次，主要用于曝光埋点使用。 |否 |
 
 
 ### installReport

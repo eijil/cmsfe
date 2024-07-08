@@ -1,7 +1,7 @@
 {
   "name": "@cmsfe/tools",
   "description": "cms",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

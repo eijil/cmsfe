@@ -55,12 +55,6 @@ export default defineConfig({
     entryFile: './src/index.tsx',
   },
   themeConfig,
-  extraPostCSSPlugins: [require('tailwindcss'), require('autoprefixer')],
-  styles: [
-    `html, body { background: transparent;  }
-
-  @media (prefers-color-scheme: dark) {
-    html, body { background: #000; }
-  }`,
-  ],
+  extraPostCSSPlugins: [require('tailwindcss'), require('autoprefixer')]
+  
 });

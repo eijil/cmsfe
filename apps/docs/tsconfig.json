@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-     "allowJs": true,
+    "allowJs": true,
     "declaration": false,
     "declarationMap": false,
     "incremental": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "noEmit": true,
-    "target": "es5",
+    "target": "ESNext",
     "baseUrl": "./",
-    
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
     "paths": {
       "@@/*": [
         ".dumi/tmp/*"
