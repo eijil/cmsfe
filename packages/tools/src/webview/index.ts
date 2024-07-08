@@ -1,11 +1,6 @@
 'use client'
 import { IWebView, WebviewParams, ICallback } from './type'
-
-
 let i = 0
-
-
-
 const UID_PREFIX = Date.now().toString()
 class WebView extends IWebView {
   // 回调函数存储池
@@ -13,6 +8,10 @@ class WebView extends IWebView {
 
   public constructor() {
     super()
+
+    if (typeof window === 'undefined') {
+      return
+    }
     // 挂在回调函数
      window.nativeCallback = (res?: any) => {
       this.handleCallback(res)

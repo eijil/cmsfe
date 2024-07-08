@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev --filter=!nextjs-project",
+   
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "vitest run",
