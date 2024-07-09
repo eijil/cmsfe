@@ -24,7 +24,8 @@
     "@lobehub/ui": "^1.143.3",
     "@uiw/react-json-view": "2.0.0-alpha.24",
     "dumi-theme-lobehub": "latest",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-compare-image": "^3.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

@@ -1,5 +1,4 @@
 import enquirer from 'enquirer'
-import { ossUtilConfig } from '@/src/lib'
 
 import chalk from 'chalk'
 import { Command } from 'commander'
@@ -13,7 +12,12 @@ const spinner = ora({
   text: 'Loading...',
   color: 'yellow',
 })
+
+
+
 const cwd = process.cwd()
+
+const configPath = path.join(cwd, '.cmsfe_config.json')
 
 type Env = 'test' | 'prod'
 
@@ -32,14 +36,20 @@ async function initCheck() {
     logger.error('未找到dist文件夹，请先执行build命令')
     process.exit(1)
   }
+  // 检查是否存在配置文件
+  if (!fs.existsSync(configPath)) {
+    logger.error('未找到ocmsfeconfig.json文件，请先创建')
+    process.exit(1)
+  }
 }
 
 function initOssUtilConfig(env: Env) {
-  const config = ossUtilConfig[env]
-
   try {
+    const data = fs.readFileSync(configPath, 'utf8')
+    const config = JSON.parse(data)
+    const ossConfig = config.oss[env]
     execSync(
-      `ossutil config -e ${config.endpoint} -i ${config.accessKeyID} -k ${config.accessKeySecret}`,
+      `ossutil config -e ${ossConfig.endpoint} -i ${ossConfig.accessKeyID} -k ${ossConfig.accessKeySecret}`,
       { stdio: 'inherit' }
     )
   } catch (error) {

@@ -4,6 +4,7 @@ import { SiteThemeConfig } from 'dumi-theme-lobehub';
 const gitRepo = 'https://gitlab.stardustgod.com/lijie/cmsfe.git';
 
 const themeConfig: SiteThemeConfig = {
+ 
   actions: [
     {
       icon: 'Github',
@@ -42,11 +43,14 @@ const themeConfig: SiteThemeConfig = {
   },
   title: 'cmsfe',
   features: [],
-
+  
   footerConfig: {
     columns: [],
   },
+  
 };
+
+
 export default defineConfig({
   mfsu: false,
   ssr: false,
@@ -54,7 +58,12 @@ export default defineConfig({
   resolve: {
     entryFile: './src/index.tsx',
   },
-  themeConfig,
+  
+  themeConfig :{
+    ...themeConfig,
+    prefersColor : { default: 'light', switch: false}
+  },
   extraPostCSSPlugins: [require('tailwindcss'), require('autoprefixer')]
+  
   
 });

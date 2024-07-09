@@ -1,5 +1,17 @@
 # @cmsfe/tools
 
+## 1.0.9
+
+### Patch Changes
+
+- 修复build时 缺少类型定义报错
+
+## 1.0.8
+
+### Patch Changes
+
+- fix ui componet
+
 ## 1.0.7
 
 ### Patch Changes

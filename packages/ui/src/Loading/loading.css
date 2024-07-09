@@ -1,5 +1,4 @@
 
-
 .loading {
   @apply pointer-events-none inline-block aspect-square w-6;
   background-color: currentColor;

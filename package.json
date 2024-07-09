@@ -2,7 +2,7 @@
   "name": "cmsfe",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo build ",
     "dev": "turbo dev --filter=!nextjs-project",
    
     "lint": "turbo lint",
