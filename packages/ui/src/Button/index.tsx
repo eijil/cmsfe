@@ -2,6 +2,7 @@
 import React from 'react'
 import { ReactNode } from 'react'
 import { cn } from '../utils'
+import './button.css'
 
 interface ButtonProps {
   children: ReactNode
@@ -18,28 +19,11 @@ export const Button = ({
   onClick,
   type,
   size,
-  disabled
+  disabled,
 }: ButtonProps) => {
-
-  const typeMap: any = {
-    primary: 'btn-primary',
-    secondary: 'btn-secondary',
-    neutral: 'btn-neutral',
-    accent: 'btn-accent',
-    ghost: 'btn-ghost',
-    link: 'btn-link',
-  }
-  const sizeMap = {
-    xs: 'btn-xs',
-    sm: 'btn-sm',
-    lg: 'btn-lg',
-  }
-  const btnType = type? typeMap[type] : ''
-  const btnSize = size? sizeMap[size] : ''
-
   return (
     <button
-      className={cn('btn', btnType, btnSize, className)}
+      className={cn('btn', `cms-btn-${type}`, `cms-btn-${size}`, className)}
       disabled={disabled}
       onClick={onClick}
     >

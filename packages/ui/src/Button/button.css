@@ -1,0 +1,31 @@
+
+.cms-btn-primary{ 
+  @apply btn-primary
+ }
+
+ .cms-btn-secondary{
+  @apply btn-secondary
+ }
+
+.cms-btn-neutral {
+  @apply btn-neutral
+}
+.cms-btn-accent {
+  @apply btn-accent
+}
+.cms-btn-ghost {
+  @apply btn-ghost
+}
+.cms-btn-link {
+  @apply btn-link
+}
+
+.cms-btn-xs {
+  @apply btn-xs
+}
+.cms-btn-lg {
+  @apply btn-lg
+}
+.cms-btn-sm {
+  @apply btn-sm
+}

@@ -7,6 +7,8 @@ apiHeader:
 ---
 
 
+
+
 ## basic
 
 <code src="../../src/demo/button/default.tsx" defaultShowCode ></code>
@@ -28,7 +30,6 @@ import { Button } from '@cmsfe/ui';
 export default () => (
   <div className="flex space-x-2">
     <Button disabled>Default</Button>
-    
   </div>
 );
 

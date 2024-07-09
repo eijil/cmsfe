@@ -46,6 +46,7 @@ export default () => {
       <Loading size='sm' />
       <Loading size='md' />
       <Loading size='lg' />
+     
     </div>
   );
 };
@@ -61,9 +62,9 @@ import { Loading } from '@cmsfe/ui'
 export default () => {
   return (
     <div className='flex space-x-2'> 
-      <Loading color='#0ea5e9'/>
-      <Loading color='#15803d'/>
-
+      <Loading className='text-blue-300' />
+      <Loading className='text-red-500' />
+      <Loading style={{color: "#000"}} />
     </div>
   );
 };
@@ -86,7 +87,7 @@ export default () => {
   return (
     <div className='h-40'> 
       body
-      <Loading color='#0ea5e9' size='lg' fixed={{
+      <Loading size='lg' className='text-purple-500'  fixed={{
         zIndex: 1000,
         opacity: 0.5
       }}/>
@@ -104,10 +105,10 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| color | 颜色 | string | - |
 | size | 尺寸 | string | 'md' |
 | fixed | 遮罩 | object | - |
 | className | class | string | - |
+| style | style | object | - |
 
 
 

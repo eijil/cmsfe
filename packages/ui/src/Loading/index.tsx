@@ -1,7 +1,6 @@
 import React from 'react'
-import { cn } from '../utils' 
-
-
+import { cn } from '../utils'
+import './loading.css'
 
 type Fixed = {
   zIndex?: number
@@ -23,51 +22,32 @@ export interface LoadingProps {
   text?: string
 
   fixed?: Fixed
+
+  style?: React.CSSProperties
 }
 
 export const Loading = (props: LoadingProps) => {
-  const { className, color = '#000', fixed } = props
-  const sizeMap = {
-    xs: 'loading-xs',
-    sm: 'loading-sm',
-    md: 'loading-md',
-    lg: 'loading-lg',
-  }
-
-  const clsSize = sizeMap[props.size || 'md']
+  const { className, color = '#000', fixed, size, style } = props
 
   return (
     <div
-      className={cn(
-        'flex',
-        fixed && 'fixed w-full h-full top-0 left-0 items-center justify-center'
-      )}
+      className={cn('flex', fixed && 'cmsfe-loading-fixed')}
       style={{
         zIndex: fixed?.zIndex || 100,
       }}
     >
       {fixed && (
         <div
-          className={cn(
-            'absolute top-0 left-0 w-full h-full bg-gray-600 transition-all duration-300 ease-in-out'
-          )}
+          className={cn('cmsfe-loading-mask')}
           style={{
             opacity: fixed?.opacity || 0.5,
           }}
         ></div>
       )}
       <div
-        className={cn(
-          clsSize,
-          'loading loading-spinner dark:text-blue-200 ',
-          className
-        )}
-        style={{
-          color: color,
-        }}
+        className={cn('loading loading-spinner',`loading-${size}`, className)}
+        style={style}
       />
     </div>
   )
 }
-
-
