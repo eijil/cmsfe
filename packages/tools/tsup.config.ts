@@ -4,9 +4,8 @@ export default defineConfig((options) => ({
   entry: ['src/index.tsx'],
   format: ['cjs', 'esm'],
   dts: true,
-  sourcemap: false,
-  external: ["react"],
+  sourcemap: true,
+  external: ['react'],
   exclude: ['./eslintrc.js'],
   ...options,
-  
 }))

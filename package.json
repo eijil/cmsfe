@@ -1,21 +1,18 @@
 {
-  "name": "cmsfe",
+  "name": "@cmsfe/turborepo",
   "private": true,
   "scripts": {
     "build": "turbo build ",
     "dev": "turbo dev --filter=!nextjs-project",
-   
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "vitest run",
-    "publish-packages": "turbo run build lint && changeset version && changeset publish",
+    "publish-packages": "pnpm lint && turbo run build && changeset && changeset version && changeset publish",
     "cli:dev": "pnpm --filter @cmsfe/cli dev",
     "change": "changeset",
     "change-a": "changeset pre enter alpha",
     "change-b": "changeset pre enter beta",
-    "change-rc": "changeset pre enter rc",
-    "release": "turbo build --filter=docs^... && changeset publish",
-    "pub:release": "cd packages/cli && pnpm pub:release"
+    "change-rc": "changeset pre enter rc"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

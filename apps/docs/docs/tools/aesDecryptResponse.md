@@ -10,8 +10,7 @@ group: 'service'
 
 ``` ts
 
-import { aesDecryptResponse } from '@/utils/tools/service';
-
+import { aesDecryptResponse } from '@cmsfe/tools/service';
 aesDecryptResponse(source: string): string
 
 ```
