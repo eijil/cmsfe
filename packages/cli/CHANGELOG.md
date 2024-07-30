@@ -1,5 +1,11 @@
 # CLI
 
+## 1.0.2
+
+### Patch Changes
+
+- 不忽略dist目录
+
 ## 1.0.1
 
 ### Patch Changes

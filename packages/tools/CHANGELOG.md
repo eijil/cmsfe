@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 1.0.11
+
+### Patch Changes
+
+- 不忽略dist目录
+
 ## 1.0.10
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @cmsfe/typescript-config
 
+## 0.1.3
+
+### Patch Changes
+
+- 不忽略dist目录
+
 ## 0.1.2
 
 ### Patch Changes
