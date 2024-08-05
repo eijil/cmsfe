@@ -5,6 +5,27 @@ apiHeader:
   pkg: '@cmsfe/tools'
 ---
 
+
+## exec
+
+```ts
+webview.exec( [API] , params?:Prams )
+
+```
+
+```ts
+type Param = {
+...other,
+callback?: (res:Res) => void
+
+}
+type Res = {
+  code: number
+  message: string
+  data: any
+}
+```
+
 ## API
 
 
@@ -38,30 +59,26 @@ webview.exec('getCredentials', {
 
 ```
 
+### continueWatch
 
-
-
-## Demo
-
-```jsx
-
-import React from 'react'
-import { webview } from '@cmsfe/tools'
-
-export default function(){
-
-  function getUserInfo(){
-
-    webview.exec('getUserInfo', {
-     
-      callback: (res) => {
-        console.log(res)
-      }
-    })
-  }
-
-  return (<button className='btn' onClick={getUserInfo}>test</button>)
+```ts
+// 入参
+type Params = {
+  videoId: string
+  callback: (res: Res) => void
 }
 
+type Res = {
+  code: number,
+  message: string,
+  data: {
+
+  }
+}
+// 
+webview.exec('continueWatch', params:Params)
+
 ```
+
+
 

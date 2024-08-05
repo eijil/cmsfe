@@ -1,8 +1,9 @@
 'use client'
-import { Action, NavtiveCallParam, CallBackResult, CallBack } from './type'
 
-const CALL_NATIVE = 'callNative'
-const NATIVE_CALLBACK = 'nativeCallback'
+import { Action, CallBack, CallBackResult, NavtiveCallParam } from './type'
+
+const CALL_NATIVE = 'webToNative'
+const NATIVE_CALLBACK = 'nativeToWeb'
 
 class WebView {
   // 回调函数存储池
@@ -12,20 +13,29 @@ class WebView {
     if (typeof window === 'undefined') {
       return
     }
-    // 挂在回调函数
+    // 注册回调函数
+    this.registerCallback()
+  }
+
+  private registerCallback(): void {
     window[NATIVE_CALLBACK] = (res: CallBackResult) => {
-      this.handleCallback(res)
+      const { name } = res
+      try {
+        this.nativeCallbacks.get(name)?.(res)
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 
   /** 执行  */
-  public exec = (action: Action, params?: NavtiveCallParam<Action>) => {
+  public exec(action: Action, params?: NavtiveCallParam<Action>) {
+    const { callback, ...other } = params || {}
     const _parma = {
       id: Date.now().toString(),
       name: action,
-      params,
+      params: JSON.stringify(other),
     }
-    console.log('native call =====>', _parma)
 
     try {
       this.postMessage(_parma)
@@ -33,9 +43,10 @@ class WebView {
       console.log(e)
     }
 
-    if (params?.callback) {
-      this.nativeCallbacks.set(action, params.callback)
+    if (callback) {
+      this.nativeCallbacks.set(action, callback)
     }
+    return _parma
   }
 
   /** 调用接口 */
@@ -51,23 +62,18 @@ class WebView {
 
   /** IOS通信 */
   private iosMessage = (param: any) => {
-    const kit = window.webkit
-    const postMessage = kit?.messageHandlers?.[CALL_NATIVE]?.postMessage
+    const native = window.webkit?.messageHandlers[CALL_NATIVE]
     // 由于ISO不会抛出错误需要手动抛出
-    if (!postMessage) {
+    if (!native) {
       throw new Error('版本过低')
     }
-    postMessage(param)
+
+    native.postMessage(param)
   }
 
   /** android通信 */
   private androidMessage = (param: any) => {
-    window?.Android?.[CALL_NATIVE](param)
-  }
-  /** 增强回调 */
-  private handleCallback = (res: CallBackResult) => {
-    const { name } = res
-    this.nativeCallbacks.get(name)?.(res)
+    window?.Android[CALL_NATIVE](param)
   }
 }
 

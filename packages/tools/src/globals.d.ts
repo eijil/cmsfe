@@ -1,8 +1,8 @@
 export {}
 declare global {
   interface Window {
-    nativeCallback: (res: any) => void
-    callNative: (params: any) => void
+    webToNative: (res: any) => void
+    nativeToWeb: (params: any) => void
     webkit: any
     Android: any
   }
