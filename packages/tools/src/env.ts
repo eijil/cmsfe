@@ -22,7 +22,8 @@ export const getEnv = (userAgent?: string) => {
     isAndroid: os.name === 'Android',
     isIOS: os.name === 'iOS',
     isTablet: device.type === 'tablet',
-    isMac: os.name === 'Mac OS'
+    isMac: os.name === 'Mac OS',
+    isApp: location.search.includes('rsApp'),
     
   }
 }

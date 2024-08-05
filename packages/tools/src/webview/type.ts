@@ -1,10 +1,33 @@
 /// <reference types="../globals.d.ts" />
-export type ICallback = (response?: any) => void
-export interface WebviewParams {
-  callback?: ICallback
-  param?: Array<Array<any>>
+
+interface ICallParam {
+  getUserInfo: {
+   [key: string]: any
+    uid: string
+  }
+}
+interface ICallbackParams {
+  getUserInfo: {
+    [key: string]: any
+    uid: string
+  }
+}
+export type Action = keyof ICallParam
+
+export type CallBack = (res: CallBackResult) => void
+
+export type ICallBackParam = {
+  callback?: CallBack
 }
 
-export class IWebView {
-  [key: string]: any
+export type NavtiveCallParam<T extends Action> = T extends keyof ICallParam
+  ? ICallParam[T] & ICallBackParam
+  : ICallBackParam
+
+export type CallBackResult = {
+  code: number
+  name: Action
+  message: string
+  id: string
+  data: ICallbackParams[Action]
 }
