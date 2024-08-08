@@ -7,7 +7,7 @@ const NATIVE_CALLBACK = 'nativeToWeb'
 
 class WebView {
   // 回调函数存储池
-  private nativeCallbacks: Map<Action, CallBack> = new Map()
+  private nativeCallbacks: Map<string, CallBack<any>> = new Map()
 
   public constructor() {
     if (typeof window === 'undefined') {
@@ -17,11 +17,14 @@ class WebView {
     this.registerCallback()
   }
 
-  private registerCallback(): void {
-    window[NATIVE_CALLBACK] = (res: CallBackResult) => {
-      const { name } = res
+  private registerCallback<T extends Action>(): void {
+    window[NATIVE_CALLBACK] = (res: CallBackResult<T>) => {
       try {
-        this.nativeCallbacks.get(name)?.(res)
+        if (typeof res === 'string') {
+          res = JSON.parse(res)
+        }
+        const { id, name } = res
+        this.nativeCallbacks.get(`${id}_${name}`)?.(res)
       } catch (e) {
         console.log(e)
       }
@@ -29,12 +32,15 @@ class WebView {
   }
 
   /** 执行  */
-  public exec(action: Action, params?: NavtiveCallParam<Action>) {
+  public exec<T extends Action>(action: T, params?: NavtiveCallParam<T>) {
     const { callback, ...other } = params || {}
+
+    const id = Date.now().toString()
+
     const _parma = {
-      id: Date.now().toString(),
+      id,
       name: action,
-      params: JSON.stringify(other),
+      params: other,
     }
 
     try {
@@ -44,19 +50,23 @@ class WebView {
     }
 
     if (callback) {
-      this.nativeCallbacks.set(action, callback)
+      this.nativeCallbacks.set(`${id}_${action}`, callback)
     }
     return _parma
   }
 
   /** 调用接口 */
-  private postMessage = (params: any) => {
+  private postMessage = (message: any) => {
     if (window.webkit) {
       // ios处理
-      this.iosMessage(params)
+      const param = {
+        ...message,
+        params: message.params,
+      }
+      this.iosMessage(param)
     } else if (window?.Android) {
       // 安卓
-      this.androidMessage(params)
+      this.androidMessage(JSON.stringify(message))
     }
   }
 
