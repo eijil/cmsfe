@@ -67,6 +67,14 @@ class WebView {
     } else if (window?.Android) {
       // 安卓
       this.androidMessage(JSON.stringify(message))
+    } else {
+      window[NATIVE_CALLBACK]({
+        code: -1,
+        message: 'current platform is not support',
+        name: message.name,
+        id: message.id,
+        data: null,
+      })
     }
   }
 
