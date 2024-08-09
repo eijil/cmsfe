@@ -1,3 +1,5 @@
+/// <reference types="../globals.d.ts" />
+
 // 入参
 export interface ICallParam {
   closePage: {
@@ -76,12 +78,14 @@ export interface ICallbackParams {
   continueWatch: {
     [key: string]: any
   }
-  getPermissionStatus: [
-    {
-      permission: string
-      status: '1' | '2'
-    },
-  ]
+  getPermissionStatus: {
+    result: [
+      {
+        permission: string
+        status: '1' | '2'
+      },
+    ]
+  }
   openSystermRoute: {
     [key: string]: any
   }

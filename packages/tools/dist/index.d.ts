@@ -52,36 +52,152 @@ declare class ReportSDK {
     private send;
 }
 
-type ICallback = (response?: any) => void;
-interface WebviewParams {
-    callback?: ICallback;
-    param?: Array<Array<any>>;
-}
-declare class IWebView {
-    [key: string]: any;
-}
-
-declare class WebView extends IWebView {
-    private nativeCallback;
-    constructor();
-    /** * 直接调用api  */
-    exec: (name: string, params?: WebviewParams) => any;
-    /** 增加一项新的Api */
-    addApi: (name: string) => this;
+interface ICallParam {
+    closePage: {
+        [key: string]: any;
+    };
+    getUserInfo: {
+        [key: string]: any;
+    };
+    continueWatch: {
+        [key: string]: any;
+    };
+    getPermissionStatus: {
+        permission: string[];
+    };
+    updatePermissionStatus: {
+        permission: string;
+    };
+    jumpPlayer: {
+        [key: string]: any;
+    };
+    /** 跳转一级页面 */
+    switchToPrimaryTab: {
+        tabName: string;
+    };
+    /** 跳转二级页面 */
+    pushToSecondaryPage: {
+        pageName: string;
+    };
+    /** 跳转播放器 */
+    navigateToPlayer: {
+        bookId: string;
+        bookType: number;
+        chapterId: string;
+        shelfId: string;
+    };
+    openInBrowser: {
+        url: string;
+        isInApp: 1 | 0;
+    };
+    openSystermRoute: {
+        url: string;
+    };
     /**
-     * 新增回调
-     * */
-    addCallback: (name: string | number, callback: ICallback) => void;
-    private getTrigger;
+     * 支付
+     */
+    purchase: {
+        /**
+         * 1: apple
+         * 2: google
+         * 3: paypal
+         */
+        payType: string;
+        payParams?: {
+            productId?: string;
+            gid?: string;
+            price?: string;
+            orderSrc?: string;
+            bookId?: string;
+            tBookId?: string;
+            source?: string;
+        };
+    };
+    watchAd: {
+        eventId: string;
+    };
+}
+interface ICallbackParams {
+    getUserInfo: {
+        [key: string]: any;
+    };
+    continueWatch: {
+        [key: string]: any;
+    };
+    getPermissionStatus: {
+        result: [
+            {
+                permission: string;
+                status: '1' | '2';
+            }
+        ];
+    };
+    openSystermRoute: {
+        [key: string]: any;
+    };
+    jumpPlayer: {
+        [key: string]: any;
+    };
+    navigateToPlayer: {
+        [key: string]: any;
+    };
+    switchToPrimaryTab: {
+        [key: string]: any;
+    };
+    pushToSecondaryPage: {
+        pageName: string;
+    };
+    openInBrowser: {
+        [key: string]: any;
+    };
+    /**
+     * 支付
+     */
+    purchase: {
+        status: string;
+    };
+    watchAd: {
+        eventId: string;
+    };
+    closePage: {
+        [key: string]: any;
+    };
+    updatePermissionStatus: {
+        permission: string;
+        status: string;
+    };
+}
+type Action = keyof ICallParam;
+type CallBack<T extends Action> = (res: CallBackResult<T>) => void;
+type ICallBackParam<T extends Action> = {
+    callback?: CallBack<T>;
+};
+type NavtiveCallParam<T extends Action> = ICallParam[T] & ICallBackParam<T>;
+type CallBackResult<T extends Action> = {
+    code: number;
+    name: T;
+    message: string;
+    id: string;
+    data: ICallbackParams[T];
+};
+
+declare class WebView {
+    private nativeCallbacks;
+    constructor();
+    private registerCallback;
+    /** 执行  */
+    exec<T extends Action>(action: T, params?: NavtiveCallParam<T>): {
+        id: string;
+        name: T;
+        params: Omit<NavtiveCallParam<T>, "callback"> | {};
+    };
     /** 调用接口 */
-    private run;
+    private postMessage;
     /** IOS通信 */
     private iosMessage;
     /** android通信 */
     private androidMessage;
-    /** 增强回调 */
-    private handleCallback;
 }
-declare const webview: WebView;
+declare const _default: WebView;
 
-export { ReportSDK, webview };
+export { ReportSDK, _default as webview };

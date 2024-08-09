@@ -2,7 +2,7 @@
   "name": "@cmsfe/turborepo",
   "private": true,
   "scripts": {
-    "build": "turbo build ",
+    "build": "turbo build --filter=!nextjs-project",
     "dev": "turbo dev --filter=!nextjs-project",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

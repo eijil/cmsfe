@@ -17,8 +17,8 @@ class WebView {
     this.registerCallback()
   }
 
-  private registerCallback<T extends Action>(): void {
-    window[NATIVE_CALLBACK] = (res: CallBackResult<T>) => {
+  private registerCallback(): void {
+    window[NATIVE_CALLBACK] = (res: CallBackResult<any>) => {
       try {
         if (typeof res === 'string') {
           res = JSON.parse(res)
