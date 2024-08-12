@@ -6,79 +6,179 @@ apiHeader:
 ---
 
 
-## exec
-
-```ts
-webview.exec( [API] , params?:Prams )
-
-```
-
-```ts
-type Param = {
-...other,
-callback?: (res:Res) => void
-
-}
-type Res = {
-  code: number
-  message: string
-  data: any
-}
-```
-
-## API
 
 
 
+## exec 
+
+`webview.exec(Action, CallBackResult<Action> )`
+
+## init
+
+`webview.init(params: Record<Action, CallBackResult<Action>>)`
 
 
-### getUserInfo
+## types
 
-获取用户信息
-
-```ts
-
-webview.exec('getUserInfo', {
-  callback: (res)=> {
-    console.log('[ res ] >', res)
-  }
-})
-
-```
-
-### getCredentials 
-
-获取token
-
-```ts
-webview.exec('getCredentials', {
-  callback: (res)=>{
-    console.log('[ res ] >', res)
-  }
-})
-
-```
-
-### continueWatch
-
-```ts
+``` ts
 // 入参
-type Params = {
-  videoId: string
-  callback: (res: Res) => void
-}
+export interface ICallParam {
+  closePage: {
+    [key: string]: any
+  }
+  getUserInfo: {
+    [key: string]: any
+  }
+  continueWatch: {
+    [key: string]: any
+  }
+  getPermissionStatus: {
+    permission: string[]
+  }
+  updatePermissionStatus: {
+    permission: string
+  }
 
-type Res = {
-  code: number,
-  message: string,
-  data: {
+  jumpPlayer: {
+    [key: string]: any
+  }
+  /** 跳转一级页面 */
+  switchToPrimaryTab: {
+    tabName: string
+  }
+  /** 跳转二级页面 */
+  pushToSecondaryPage: {
+    pageName: string
+  }
 
+  /** 跳转播放器 */
+  navigateToPlayer: {
+    bookId: string
+    bookType: number
+    chapterId: string
+    shelfId: string
+  }
+  openInBrowser: {
+    url: string
+    isInApp: 1 | 0
+    title: string
+    resourceId: string
+  }
+  openSystemRoute: {
+    url: string
+  }
+
+  /**
+   * 支付
+   */
+  purchase: {
+    /**
+     * 1: apple
+     * 2: google
+     * 3: paypal
+     */
+    payType: string
+    payParams?: {
+      productId?: string
+      gid?: string
+      price?: string
+      orderSrc?: string
+      bookId?: string
+      tBookId?: string
+      source?: string
+    }
+  }
+  watchAd: {
+    eventId: string
+  }
+  floatingBoxAction: {
+    action: 'close' | 'click'
+  }
+  reportEvent: {
+    eventName: string
+    childEventName: string
+    /**
+     * json
+     */
+    properties: string
   }
 }
-// 
-webview.exec('continueWatch', params:Params)
 
+// 回调参数
+export interface ICallbackParams {
+  getUserInfo: {
+    [key: string]: any
+  }
+  continueWatch: {
+    [key: string]: any
+  }
+  getPermissionStatus: {
+    result: [
+      {
+        permission: string
+        status: '1' | '2'
+      },
+    ]
+  }
+  openSystemRoute: {
+    [key: string]: any
+  }
+  jumpPlayer: {
+    [key: string]: any
+  }
+  navigateToPlayer: {
+    [key: string]: any
+  }
+  switchToPrimaryTab: {
+    [key: string]: any
+  }
+  pushToSecondaryPage: {
+    pageName: string
+  }
+  openInBrowser: {
+    [key: string]: any
+  }
+  /**
+   * 支付
+   */
+  purchase: {
+    status: string
+  }
+  watchAd: {
+    eventId: string
+  }
+  closePage: {
+    [key: string]: any
+  }
+  updatePermissionStatus: {
+    permission: string
+    status: string
+    needUpdate: string
+  }
+  floatingBoxAction: {
+    action: 'close' | 'click'
+  }
+  reportEvent: {
+    [key: string]: any
+  }
+}
+
+export type Action = keyof ICallParam
+
+export type CallBack<T extends Action> = (res: CallBackResult<T>) => void
+
+export type ICallBackParam<T extends Action> = {
+  callback?: CallBack<T>
+}
+// 入参
+export type NativeCallParam<T extends Action> = ICallParam[T] &
+  ICallBackParam<T>
+
+export type CallBackResult<T extends Action> = {
+  code: number
+  name: T
+  message: string
+  id: string
+  data: ICallbackParams[T]
+}
 ```
-
-
-
