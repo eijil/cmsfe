@@ -1,5 +1,30 @@
 # @cmsfe/tools
 
+## 1.0.22
+
+### Patch Changes
+
+- fix webview
+
+## 1.0.21
+
+### Patch Changes
+
+- fix webview
+
+## 1.0.20
+
+### Patch Changes
+
+- fix init callback
+- update types
+
+## 1.0.20-alpha.0
+
+### Patch Changes
+
+- update types
+
 ## 1.0.19
 
 ### Patch Changes

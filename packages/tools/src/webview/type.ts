@@ -40,6 +40,8 @@ export interface ICallParam {
   openInBrowser: {
     url: string
     isInApp: 1 | 0
+    title: string
+    resourceId: string
   }
   openSystemRoute: {
     url: string
@@ -67,6 +69,17 @@ export interface ICallParam {
   }
   watchAd: {
     eventId: string
+  }
+  floatingBoxAction: {
+    action: 'close' | 'click'
+  }
+  reportEvent: {
+    eventName: string
+    childEventName: string
+    /**
+     * json
+     */
+    properties: string
   }
 }
 
@@ -119,6 +132,13 @@ export interface ICallbackParams {
   updatePermissionStatus: {
     permission: string
     status: string
+    needUpdate: string
+  }
+  floatingBoxAction: {
+    action: 'close' | 'click'
+  }
+  reportEvent: {
+    [key: string]: any
   }
 }
 

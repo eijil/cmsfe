@@ -24,7 +24,8 @@ class WebView {
           res = JSON.parse(res)
         }
         const { id, name } = res
-        this.nativeCallbacks.get(`${id}_${name}`)?.(res)
+        const action = id ? `${id}_${name}` : name
+        this.nativeCallbacks.get(action)?.(res)
       } catch (e) {
         console.log(e)
       }
