@@ -90,7 +90,7 @@ interface ICallParam {
         url: string;
         isInApp: 1 | 0;
     };
-    openSystermRoute: {
+    openSystemRoute: {
         url: string;
     };
     /**
@@ -132,7 +132,7 @@ interface ICallbackParams {
             }
         ];
     };
-    openSystermRoute: {
+    openSystemRoute: {
         [key: string]: any;
     };
     jumpPlayer: {
@@ -172,7 +172,7 @@ type CallBack<T extends Action> = (res: CallBackResult<T>) => void;
 type ICallBackParam<T extends Action> = {
     callback?: CallBack<T>;
 };
-type NavtiveCallParam<T extends Action> = ICallParam[T] & ICallBackParam<T>;
+type NativeCallParam<T extends Action> = ICallParam[T] & ICallBackParam<T>;
 type CallBackResult<T extends Action> = {
     code: number;
     name: T;
@@ -182,20 +182,42 @@ type CallBackResult<T extends Action> = {
 };
 
 declare class WebView {
-    private nativeCallbacks;
+    nativeCallbacks: Map<string, CallBack<any>>;
     constructor();
     private registerCallback;
-    /** 执行  */
-    exec<T extends Action>(action: T, params?: NavtiveCallParam<T>): {
+    /**
+     * 初始化回调
+     * @param params Record<Action, CallBack<Action>>
+     * @returns void
+     */
+    init<T extends Action>(params: Record<T, CallBack<T>>): void;
+    /**
+     * 执行
+     * @param action 事件名
+     * @param params 参数
+     * @returns
+     */
+    exec<T extends Action>(action: T, params?: NativeCallParam<T>): {
         id: string;
         name: T;
-        params: Omit<NavtiveCallParam<T>, "callback"> | {};
+        params: Omit<NativeCallParam<T>, "callback"> | {};
     };
     /** 调用接口 */
     private postMessage;
-    /** IOS通信 */
+    /**
+     * 错误回调
+     * @param param
+     */
+    private errorCallBack;
+    /**
+     * ios
+     * @param param
+     */
     private iosMessage;
-    /** android通信 */
+    /**
+     * android
+     * @param param
+     */
     private androidMessage;
 }
 declare const _default: WebView;

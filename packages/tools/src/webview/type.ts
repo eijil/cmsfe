@@ -41,7 +41,7 @@ export interface ICallParam {
     url: string
     isInApp: 1 | 0
   }
-  openSystermRoute: {
+  openSystemRoute: {
     url: string
   }
 
@@ -86,7 +86,7 @@ export interface ICallbackParams {
       },
     ]
   }
-  openSystermRoute: {
+  openSystemRoute: {
     [key: string]: any
   }
   jumpPlayer: {
@@ -130,7 +130,7 @@ export type ICallBackParam<T extends Action> = {
   callback?: CallBack<T>
 }
 // 入参
-export type NavtiveCallParam<T extends Action> = ICallParam[T] &
+export type NativeCallParam<T extends Action> = ICallParam[T] &
   ICallBackParam<T>
 
 export type CallBackResult<T extends Action> = {

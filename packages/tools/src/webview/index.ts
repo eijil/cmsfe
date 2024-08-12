@@ -1,13 +1,13 @@
 'use client'
 
-import { Action, CallBack, CallBackResult, NavtiveCallParam } from './type'
+import { Action, CallBack, CallBackResult, NativeCallParam } from './type'
 
 const CALL_NATIVE = 'webToNative'
 const NATIVE_CALLBACK = 'nativeToWeb'
 
 class WebView {
   // 回调函数存储池
-  private nativeCallbacks: Map<string, CallBack<any>> = new Map()
+  public nativeCallbacks: Map<string, CallBack<any>> = new Map()
 
   public constructor() {
     if (typeof window === 'undefined') {
@@ -30,27 +30,45 @@ class WebView {
       }
     }
   }
+  /**
+   * 初始化回调
+   * @param params Record<Action, CallBack<Action>>
+   * @returns void
+   */
+  public init<T extends Action>(params: Record<T, CallBack<T>>) {
+    for (const key in params) {
+      const callback = params[key]
+      if (callback) {
+        this.nativeCallbacks.set(key, callback)
+      }
+    }
+  }
 
-  /** 执行  */
-  public exec<T extends Action>(action: T, params?: NavtiveCallParam<T>) {
+  /**
+   * 执行
+   * @param action 事件名
+   * @param params 参数
+   * @returns
+   */
+  public exec<T extends Action>(action: T, params?: NativeCallParam<T>) {
     const { callback, ...other } = params || {}
-
     const id = Date.now().toString()
-
     const _parma = {
       id,
       name: action,
       params: other,
     }
-
-    try {
-      this.postMessage(_parma)
-    } catch (e) {
-      console.log(e)
-    }
-
     if (callback) {
       this.nativeCallbacks.set(`${id}_${action}`, callback)
+    }
+    try {
+      this.postMessage(_parma)
+    } catch (e: any) {
+      this.errorCallBack({
+        id,
+        message: e.toString(),
+        name: action,
+      })
     }
     return _parma
   }
@@ -68,28 +86,42 @@ class WebView {
       // 安卓
       this.androidMessage(JSON.stringify(message))
     } else {
-      window[NATIVE_CALLBACK]({
-        code: -1,
-        message: 'current platform is not support',
-        name: message.name,
-        id: message.id,
-        data: null,
-      })
+      throw new Error('current environment not support')
     }
   }
 
-  /** IOS通信 */
+  /**
+   * 错误回调
+   * @param param
+   */
+  private errorCallBack<T extends Action>(
+    param: Partial<CallBackResult<T>>
+  ): void {
+    window[NATIVE_CALLBACK]({
+      code: -1,
+      id: param.id,
+      name: param.name,
+      message: param.message,
+    })
+  }
+
+  /**
+   * ios
+   * @param param
+   */
   private iosMessage = (param: any) => {
     const native = window.webkit?.messageHandlers[CALL_NATIVE]
     // 由于ISO不会抛出错误需要手动抛出
     if (!native) {
-      throw new Error('版本过低')
+      throw new Error('ios version too low')
     }
-
     native.postMessage(param)
   }
 
-  /** android通信 */
+  /**
+   * android
+   * @param param
+   */
   private androidMessage = (param: any) => {
     window?.Android[CALL_NATIVE](param)
   }
