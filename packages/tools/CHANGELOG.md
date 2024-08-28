@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 1.0.23
+
+### Patch Changes
+
+- update webview types
+
 ## 1.0.22
 
 ### Patch Changes

@@ -7,7 +7,7 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "vitest run",
-    "publish-packages": "pnpm lint && turbo run build && changeset && changeset version && changeset publish",
+    "publish-packages": "pnpm lint && pnpm build && changeset && changeset version && changeset publish",
     "cli:dev": "pnpm --filter @cmsfe/cli dev",
     "change": "changeset",
     "change-a": "changeset pre enter alpha",

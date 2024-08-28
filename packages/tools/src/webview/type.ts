@@ -3,11 +3,9 @@
 // 入参
 export interface ICallParam {
   closePage: {
-    [key: string]: any
+    [key: string]: unknown
   }
-  getUserInfo: {
-    [key: string]: any
-  }
+
   continueWatch: {
     [key: string]: any
   }
@@ -17,31 +15,35 @@ export interface ICallParam {
   updatePermissionStatus: {
     permission: string
   }
-
-  jumpPlayer: {
-    [key: string]: any
-  }
   /** 跳转一级页面 */
   switchToPrimaryTab: {
-    tabName: string
+    tabName: 'home' | 'forYou' | 'rewards' | 'profile' | 'library'
   }
   /** 跳转二级页面 */
   pushToSecondaryPage: {
-    pageName: string
+    pageName:
+      | 'history'
+      | 'myWallet'
+      | 'login'
+      | 'store'
+      | 'rewards'
+      | 'myCoupons'
+    [key: string]: unknown
   }
 
   /** 跳转播放器 */
   navigateToPlayer: {
     bookId: string
-    bookType: number
-    chapterId: string
-    shelfId: string
+    bookType?: number
+    chapterId?: string
+    shelfId?: number
   }
   openInBrowser: {
     url: string
     isInApp: 1 | 0
     title: string
     resourceId: string
+    version?: string
   }
   openSystemRoute: {
     url: string
@@ -57,21 +59,21 @@ export interface ICallParam {
      * 3: paypal
      */
     payType: string
-    payParams?: {
-      productId?: string
-      gid?: string
-      price?: string
-      orderSrc?: string
-      bookId?: string
-      tBookId?: string
-      source?: string
-    }
+    payParams?: Partial<{
+      productId: string
+      gid: string
+      price: string
+      orderSrc: string
+      bookId: string
+      tBookId: string
+      source: string
+    }>
   }
   watchAd: {
     eventId: string
   }
   floatingBoxAction: {
-    action: 'close' | 'click'
+    action: 'show' | 'close' | 'click'
   }
   reportEvent: {
     eventName: string
@@ -79,15 +81,20 @@ export interface ICallParam {
     /**
      * json
      */
-    properties: string
+    properties: Record<string, unknown>
   }
+  /**
+   * h5获取native用户token
+   */
+  fetchNativeToken: Record<string, unknown>
+  /**
+   * h5触发native更新离线包
+   */
+  checkUpdate: Record<string, unknown>
 }
 
 // 回调参数
 export interface ICallbackParams {
-  getUserInfo: {
-    [key: string]: any
-  }
   continueWatch: {
     [key: string]: any
   }
@@ -102,18 +109,19 @@ export interface ICallbackParams {
   openSystemRoute: {
     [key: string]: any
   }
-  jumpPlayer: {
-    [key: string]: any
-  }
+
   navigateToPlayer: {
     [key: string]: any
   }
   switchToPrimaryTab: {
-    [key: string]: any
+    tabName: string
+    [key: string]: unknown
   }
   pushToSecondaryPage: {
     pageName: string
+    [key: string]: unknown
   }
+
   openInBrowser: {
     [key: string]: any
   }
@@ -135,11 +143,15 @@ export interface ICallbackParams {
     needUpdate: string
   }
   floatingBoxAction: {
-    action: 'close' | 'click'
+    action: string
   }
   reportEvent: {
     [key: string]: any
   }
+  fetchNativeToken: {
+    token: string
+  }
+  checkUpdate: Record<string, unknown>
 }
 
 export type Action = keyof ICallParam
