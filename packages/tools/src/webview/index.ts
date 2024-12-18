@@ -1,5 +1,5 @@
 'use client'
-
+import { nanoid } from 'nanoid'
 import { Action, CallBack, CallBackResult, NativeCallParam } from './type'
 
 const CALL_NATIVE = 'webToNative'
@@ -53,7 +53,7 @@ class WebView {
    */
   public exec<T extends Action>(action: T, params?: NativeCallParam<T>) {
     const { callback, ...other } = params || {}
-    const id = Date.now().toString()
+    const id = nanoid()
     const _parma = {
       id,
       name: action,

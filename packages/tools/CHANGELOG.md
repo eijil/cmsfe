@@ -1,5 +1,17 @@
 # @cmsfe/tools
 
+## 1.0.25
+
+### Patch Changes
+
+- build
+
+## 1.0.24
+
+### Patch Changes
+
+- 唯一id不使用时间戳
+
 ## 1.0.23
 
 ### Patch Changes
