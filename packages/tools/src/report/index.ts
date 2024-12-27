@@ -31,9 +31,6 @@ class ReportSDK {
   }
 
   public static getInstance(params: IParams): ReportSDK {
-
-   
-
     if (!ReportSDK.instance) {
       ReportSDK.instance = new ReportSDK(params)
     }
