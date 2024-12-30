@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 2.0.0
+
+### Major Changes
+
+- export service
+
 ## 1.0.25
 
 ### Patch Changes

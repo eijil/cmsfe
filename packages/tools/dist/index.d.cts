@@ -246,4 +246,6 @@ declare class WebView {
 }
 declare const _default: WebView;
 
-export { ReportSDK, _default as webview };
+declare function requestWithSign<T>(url: string, data: Record<string, any>): Promise<T>;
+
+export { ReportSDK, requestWithSign, _default as webview };
