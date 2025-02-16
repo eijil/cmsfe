@@ -4,7 +4,7 @@ import { Action, CallBack, CallBackResult, NativeCallParam } from './type'
 
 const CALL_NATIVE = 'webToNative'
 const NATIVE_CALLBACK = 'nativeToWeb'
-
+ 
 class WebView {
   // 回调函数存储池
   public nativeCallbacks: Map<string, CallBack<any>> = new Map()
