@@ -5,12 +5,10 @@ import { UAParser } from 'ua-parser-js'
 // 导出获取环境函数
 
 export const getEnv = (userAgent?: string) => {
+  const isClient = typeof window !== 'undefined'
+
   // 获取userAgent
-  userAgent = userAgent
-    ? userAgent
-    : typeof window !== 'undefined'
-      ? window.navigator.userAgent
-      : ''
+  userAgent = userAgent ? userAgent : isClient ? window.navigator.userAgent : ''
   // 创建UAParser
   const uaParser = UAParser(userAgent)
 
@@ -24,8 +22,7 @@ export const getEnv = (userAgent?: string) => {
     isIOS: os.name === 'iOS',
     isTablet: device.type === 'tablet',
     isMac: os.name === 'Mac OS',
-    isApp: window.location.search.includes('rsApp'),
-    
+    isApp: isClient ? window.location.search.includes('rsApp') : false,
   }
 }
 

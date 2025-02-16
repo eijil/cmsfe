@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 2.0.4
+
+### Patch Changes
+
+- fix window defined
+
 ## 2.0.3
 
 ### Patch Changes

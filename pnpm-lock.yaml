@@ -23,6 +23,9 @@ importers:
       changelogithub:
         specifier: latest
         version: 13.12.1
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.1
       flag:
         specifier: ^5.0.1
         version: 5.0.1(react@18.3.1)

@@ -8,12 +8,7 @@
     "react-internal.js",
     "base.js"
   ],
-  "exports": {
-    "./base": "./base.js",
-    "./library":"./library.js",
-    "./next-js": "./next.js",
-    "./react-internal": "./react-internal.js"
-  },
+ 
   "devDependencies": {
     "@vercel/style-guide": "^5.2.0",
     "eslint-config-turbo": "^1.12.4",
