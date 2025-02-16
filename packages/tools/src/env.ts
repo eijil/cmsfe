@@ -3,6 +3,7 @@
 import { UAParser } from 'ua-parser-js'
 
 // 导出获取环境函数
+
 export const getEnv = (userAgent?: string) => {
   // 获取userAgent
   userAgent = userAgent

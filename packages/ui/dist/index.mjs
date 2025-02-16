@@ -18,8 +18,8 @@ var __copyProps = (to, from, except, desc) => {
 var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
 
 // src/index.tsx
-var src_exports = {};
-__export(src_exports, {
+var index_exports = {};
+__export(index_exports, {
   Button: () => Button,
   Loading: () => Loading
 });
@@ -58,7 +58,7 @@ __reExport(Toast_exports, react_hot_toast_star);
 import * as react_hot_toast_star from "react-hot-toast";
 
 // src/index.tsx
-__reExport(src_exports, Toast_exports);
+__reExport(index_exports, Toast_exports);
 
 // src/Loading/index.tsx
 import { jsx as jsx2, jsxs } from "react/jsx-runtime";

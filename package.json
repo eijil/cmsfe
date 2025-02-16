@@ -21,7 +21,7 @@
     "@cmsfe/cli": "workspace:*",
     "@cmsfe/eslint-config": "workspace:*",
     "@cmsfe/typescript-config": "workspace:*",
-    "changelogithub": "^0.13.9",
+    "changelogithub": "latest",
     "flag": "^5.0.1",
     "prettier": "^3.2.5",
     "tsup": "^8.0.2",

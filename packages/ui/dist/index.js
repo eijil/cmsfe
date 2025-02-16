@@ -30,12 +30,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.tsx
-var src_exports = {};
-__export(src_exports, {
+var index_exports = {};
+__export(index_exports, {
   Button: () => Button,
   Loading: () => Loading
 });
-module.exports = __toCommonJS(src_exports);
+module.exports = __toCommonJS(index_exports);
 
 // src/utils/index.ts
 var import_tailwind_merge = require("tailwind-merge");
@@ -70,7 +70,7 @@ var Toast_exports = {};
 __reExport(Toast_exports, require("react-hot-toast"));
 
 // src/index.tsx
-__reExport(src_exports, Toast_exports, module.exports);
+__reExport(index_exports, Toast_exports, module.exports);
 
 // src/Loading/index.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");

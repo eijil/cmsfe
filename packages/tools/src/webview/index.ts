@@ -4,7 +4,7 @@ import { Action, CallBack, CallBackResult, NativeCallParam } from './type'
 
 const CALL_NATIVE = 'webToNative'
 const NATIVE_CALLBACK = 'nativeToWeb'
- 
+
 class WebView {
   // 回调函数存储池
   public nativeCallbacks: Map<string, CallBack<any>> = new Map()
@@ -65,7 +65,6 @@ class WebView {
     try {
       this.postMessage(_parma)
     } catch (e: any) {
-
       this.errorCallBack({
         id,
         message: e.toString(),
