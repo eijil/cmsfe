@@ -1,19 +1,32 @@
 {
   "name": "@cmsfe/tools",
   "description": "cms",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./env": "./src/env.ts",
-    "./service": "./src/service/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./env": {
+      "types": "./dist/env.d.ts",
+      "import": "./dist/env.js",
+      "require": "./dist/env.cjs"
+    },
+    "./service": {
+      "types": "./dist/service/index.d.ts",
+      "import": "./dist/service/index.js",
+      "require": "./dist/service/index.cjs"
+    }
   },
   "scripts": {
-    "build": "tsup src/index.ts",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "eslint"
   },
   "devDependencies": {
@@ -26,6 +39,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@types/crypto-js": "^4.2.2",
     "@types/pako": "^2.0.3",
@@ -35,7 +51,7 @@
     "fflate": "^0.8.2",
     "js-base64": "^3.7.7",
     "jsencrypt": "^3.3.2",
-    "nanoid": "^5.0.7",
+    "nanoid": "^5.1.0",
     "pako": "^2.1.0",
     "ua-parser-js": "^1.0.38"
   }

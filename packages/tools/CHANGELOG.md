@@ -1,5 +1,36 @@
 # @cmsfe/tools
 
+## 2.0.3
+
+### Patch Changes
+
+- fix
+
+## 2.0.2
+
+### Patch Changes
+
+- 优化tools
+
+## 2.0.1
+
+### Patch Changes
+
+- fix build packages bug
+- fix build bug
+
+## 2.0.1-alpha.1
+
+### Patch Changes
+
+- fix build packages bug
+
+## 2.0.1-alpha.0
+
+### Patch Changes
+
+- fix build bug
+
 ## 2.0.0
 
 ### Major Changes

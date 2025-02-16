@@ -1,12 +1,17 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig((options) => ({
-  entry: ['src/index.tsx'],
+   entry: [
+    'src/index.ts',
+    'src/env.ts',
+    'src/service/index.ts'
+  ],
   format: ['cjs', 'esm', 'iife'],
   globalName: 'CmsfeTools',
-  minify: true,
+  minify: !options.watch,
   dts: true,
-  sourcemap: true,
+  sourcemap: !!options.watch,
+  clean:true,
   external: ['react'],
   exclude: ['./eslintrc.cjs'],
   platform: 'browser',

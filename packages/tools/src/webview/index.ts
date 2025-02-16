@@ -65,6 +65,7 @@ class WebView {
     try {
       this.postMessage(_parma)
     } catch (e: any) {
+
       this.errorCallBack({
         id,
         message: e.toString(),

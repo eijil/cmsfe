@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build --filter=!nextjs-project",
+    "build:tools": "turbo build --filter=@cmsfe/tools",
     "dev": "turbo dev --filter=!nextjs-project",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -13,6 +14,7 @@
     "change-a": "changeset pre enter alpha",
     "change-b": "changeset pre enter beta",
     "change-rc": "changeset pre enter rc"
+
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

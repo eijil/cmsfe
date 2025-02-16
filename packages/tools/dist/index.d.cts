@@ -1,3 +1,5 @@
+export { requestWithSign } from './service/index.cjs';
+
 interface IParams {
     reportAPI: string;
     version: string;
@@ -246,6 +248,4 @@ declare class WebView {
 }
 declare const _default: WebView;
 
-declare function requestWithSign<T>(url: string, data: Record<string, any>): Promise<T>;
-
-export { ReportSDK, requestWithSign, _default as webview };
+export { ReportSDK, _default as webview };

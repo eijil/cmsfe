@@ -182,3 +182,37 @@ export type CallBackResult<T extends Action> = {
   data: ICallbackParams[T]
 }
 ```
+
+## demo
+
+``` jsx
+/**
+ *
+ * defaultShowCode: true
+ *
+ */
+import React, { useState, useEffect } from 'react';
+
+import { webview } from '@cmsfe/tools';
+
+export default () => {
+
+  useEffect(()=>{
+   
+    webview.exec('floatingBoxAction',{
+      action: 'click',
+      callback: (res) => {
+        console.log(res)
+      },
+     
+    })
+
+  },[])
+
+  return (
+    <div>
+   
+    </div>
+  );
+};
+```

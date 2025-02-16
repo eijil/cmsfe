@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { getEnv } from './env'
-import { webview } from './webview'
+import webview from './webview'
 
 test('test env is facebook', () => {
   const ua =
