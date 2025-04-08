@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 2.0.5
+
+### Patch Changes
+
+- fix: 修复返回结果有换行符导致JSON.parse失败
+
 ## 2.0.4
 
 ### Patch Changes
