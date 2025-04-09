@@ -20,10 +20,6 @@ class WebView {
     window[NATIVE_CALLBACK] = (res: CallBackResult<any> | string) => {
       try {
         if (typeof res === 'string') {
-          res = (res as string)
-            .replace(/(?<!\\)\n/g, '\\n') // 只替换未转义的换行符
-            .replace(/(?<!\\)\t/g, '\\t') // 只替换未转义的制表符
-            .replace(/(?<!\\)\r/g, '\\r')
           res = JSON.parse(res) as CallBackResult<any>
         }
         const { id, name } = res

@@ -1,7 +1,7 @@
 {
   "name": "@cmsfe/tools",
   "description": "cms",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "license": "MIT",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -22,6 +22,11 @@
       "types": "./dist/service/index.d.ts",
       "import": "./dist/service/index.js",
       "require": "./dist/service/index.cjs"
+    },
+    "./webview": {
+      "types": "./dist/webview.d.ts",
+      "import": "./dist/webview.js",
+      "require": "./dist/webview.cjs"
     }
   },
   "scripts": {

@@ -1,5 +1,11 @@
 # @cmsfe/tools
 
+## 2.0.6
+
+### Patch Changes
+
+- fix: 去掉转义符&导出webview
+
 ## 2.0.5
 
 ### Patch Changes
