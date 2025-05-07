@@ -2,11 +2,12 @@
 
 ## 安装
 
-```bash 
+```bash
 pnpm add @cmsfe/tools
 
 ```
 
+## 部署
 
 ## 文档
 
