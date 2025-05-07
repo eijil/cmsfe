@@ -53,10 +53,24 @@ class WebView {
   public exec<T extends Action>(action: T, params?: NativeCallParam<T>) {
     const { callback, ...other } = params || {}
     const id = nanoid()
+    let otherParams = other
+    // 埋点事件添加公共字段 is_h5
+    if (action === 'reportEvent') {
+      if (
+        'properties' in otherParams &&
+        otherParams.properties &&
+        typeof otherParams.properties === 'object'
+      ) {
+        otherParams.properties = {
+          ...otherParams.properties,
+          is_h5: 1,
+        }
+      }
+    }
     const _parma = {
       id,
       name: action,
-      params: other,
+      params: otherParams,
     }
     if (callback) {
       this.nativeCallbacks.set(`${id}_${action}`, callback)
